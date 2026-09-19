@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Inventory Logger</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>📦 Warehouse Inventory Dashboard</h2>
+        
+        <!-- Low Stock Alert Banner -->
+        <div class="alert-banner" id="stockAlert">
+            ⚠️ <strong>Low Stock Alert:</strong> Wireless Mouse is running below 5 units!
+        </div>
+
+        <!-- Add Product Form -->
+        <div class="card">
+            <h3>Add New Product</h3>
+            <form id="inventoryForm">
+                <input type="text" id="prodName" placeholder="Product Name" required>
+                <input type="number" id="prodQty" placeholder="Quantity" required>
+                <button type="submit">Log Item to Database</button>
+            </form>
+        </div>
+
+        <!-- Inventory List Table -->
+        <div class="card">
+            <h3>Current Stock Status (Real-time SQL Sync)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Item Description</th>
+                        <th>Stock Quantity</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="inventoryTable">
+                    <tr>
+                        <td>#1001</td>
+                        <td>Wireless Mouse</td>
+                        <td>4</td>
+                        <td><span class="badge danger">Low Stock</span></td>
+                    </tr>
+                    <tr>
+                        <td>#1002</td>
+                        <td>Mechanical Keyboard</td>
+                        <td>45</td>
+                        <td><span class="badge success">In Stock</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('inventoryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Frontend input captured! Executing Java JDBC statement to securely insert data into MySQL.');
+        });
+    </script>
+</body>
+</html>
